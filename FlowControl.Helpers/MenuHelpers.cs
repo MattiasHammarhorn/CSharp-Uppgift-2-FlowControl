@@ -5,7 +5,8 @@
         public static void DisplayMainMenu()
         {
             Console.WriteLine("Welcome to the Flow Control menu!" +
-                "\nTo navigate through the program, use the options in the menu below:\n" +
+                "\nTo navigate through the program, use the options in the menu below:" +
+                "\n" +
                 "\n0. Exit" +
                 "\n1. Check ticket prices (single)" +
                 "\n2. Check ticket prices (multiple)" +

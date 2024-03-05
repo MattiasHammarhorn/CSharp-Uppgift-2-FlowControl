@@ -82,14 +82,13 @@ namespace FlowControl
 
             do
             {
-                Console.Write("Please enter a sentence of at least three words of any choice:");
-                string userInput = Console.ReadLine(); // split into string valid.
-
+                string userInput = Util.AskForAString("sentence of at least three words of any choice");
                 var words = userInput.Split(' ');
+
                 if (words.Length < 3)
                 {
                     Console.WriteLine("Error: the sentence must contain at least 3 words.");
-                } // split into array valid.
+                }
                 else
                 {
                     thirdWord = words[2];
