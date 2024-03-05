@@ -1,4 +1,5 @@
 ﻿using FlowControl.Helpers;
+using System.Net.Sockets;
 
 namespace FlowControl
 {
@@ -11,7 +12,7 @@ namespace FlowControl
             do
             {
                 MenuHelpers.DisplayMainMenu();
-                string menuChoice = Util.AskForAString();
+                string menuChoice = Util.AskForAString("choice");
 
                 switch (menuChoice)
                 {
@@ -40,8 +41,8 @@ namespace FlowControl
         private static void AskForAgeAndCalculateTicketPrice()
         {
             Console.Clear();
-            int customerAge = Util.AskForAnInt();
-            double ticketPrice = CalculateTicketPrice(customerAge);
+            int customerAge = Util.AskForAnInt("age");
+            double ticketPrice = Util.CalculateTicketPrice(customerAge);
 
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey();
@@ -50,18 +51,15 @@ namespace FlowControl
         private static void AskForMultipleAgesAndCalculateTicketPrice()
         {
             Console.Clear();
-            Console.Write("Please enter the amount of persons you would like to order tickets for: ");
-            int length = Util.AskForAnInt();
+            int length = Util.AskForAnInt("amount of persons you would like to order tickets for");
             double sumOfTicketPrices = 0.0;
 
             for (int i = 0; i < length; i++)
             {
-                bool inputIsValid = false;
-                string userInput = string.Empty;
                 int customerAge = 0;
 
-                customerAge = Util.AskForAnInt();
-                sumOfTicketPrices += CalculateTicketPrice(customerAge);
+                customerAge = Util.AskForAnInt("age");
+                sumOfTicketPrices += Util.CalculateTicketPrice(customerAge);
             }
 
             Console.WriteLine($"The maximum ticket price for {length} person(s) is: {sumOfTicketPrices}");
@@ -71,7 +69,7 @@ namespace FlowControl
 
         private static void LoopUserInputTenTimes()
         {
-            string input = Util.AskForAString();
+            string input = Util.AskForAString("input");
 
             for (int i = 0; i < 10; i++)
             {
@@ -109,27 +107,6 @@ namespace FlowControl
             Console.WriteLine(thirdWord);
             Console.WriteLine("\nPress any key to continue.");
             Console.ReadKey();
-        }
-
-        private static double CalculateTicketPrice(int customerAge)
-        {
-            double ticketPrice = 0;
-            if (customerAge < 20)
-            {
-                ticketPrice = 80.0;
-                Console.WriteLine($"Youth price: {ticketPrice}");
-            }
-            else if (customerAge > 64)
-            {
-                ticketPrice = 90.0;
-                Console.WriteLine($"Pensioner price: {ticketPrice}");
-            }
-            else
-            {
-                ticketPrice = 120.0;
-                Console.WriteLine($"Standard price: {ticketPrice}");
-            }
-            return ticketPrice;
         }
         #endregion
     }
