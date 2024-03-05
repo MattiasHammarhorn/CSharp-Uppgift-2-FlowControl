@@ -62,12 +62,19 @@ namespace FlowControl
             double ticketPrice = 0;
             if (customerAge < 20)
             {
-                ticketPrice = 80.0;
+                if (customerAge < 5)
+                    ticketPrice = 0.0;
+                else
+                    ticketPrice = 80.0;
+
                 customerType = "Youth";
             }
             else if (customerAge > 64)
             {
-                ticketPrice = 90.0;
+                if(customerAge > 100)
+                    ticketPrice = 0.0;
+                else
+                    ticketPrice = 90.0;
                 customerType = "Pensioner";
             }
             else
