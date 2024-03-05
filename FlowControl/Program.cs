@@ -12,7 +12,7 @@ namespace FlowControl
             do
             {
                 MenuHelpers.DisplayMainMenu();
-                string menuChoice = Util.AskForAString("choice");
+                string menuChoice = Console.ReadLine();
 
                 switch (menuChoice)
                 {
@@ -32,7 +32,7 @@ namespace FlowControl
                         SplitUserInputByWhiteSpace();
                         break;
                     default:
-                        Console.WriteLine("Invalid input. Please try again.");
+                        Console.WriteLine("Error: you must enter a valid menu choice.");
                         break;
                 }
             } while (!isShutDown);
@@ -40,31 +40,27 @@ namespace FlowControl
 
         private static void AskForAgeAndCalculateTicketPrice()
         {
-            Console.Clear();
+            string customerType = String.Empty; // Variable for storing whether customer is youth, standard or pensioner
             int customerAge = Util.AskForAnInt("age");
-            double ticketPrice = Util.CalculateTicketPrice(customerAge);
-
-            Console.WriteLine("Press any key to continue.");
-            Console.ReadKey();
+            double ticketPrice = Util.CalculateTicketPrice(customerAge, out customerType);
+            MenuHelpers.DisplayTicketPriceAndCustomerType(ticketPrice, customerType);
+            MenuHelpers.PressAnyKeyToContinue();
         }
 
         private static void AskForMultipleAgesAndCalculateTicketPrice()
         {
-            Console.Clear();
-            int length = Util.AskForAnInt("amount of persons you would like to order tickets for");
             double sumOfTicketPrices = 0.0;
-
+            int length = Util.AskForAnInt("amount of persons you would like to order tickets for");
+            // Loop through the number of customers and ask for their age
             for (int i = 0; i < length; i++)
             {
-                int customerAge = 0;
+                int customerAge = Util.AskForAnInt("age");
+                string customerType = String.Empty; // Unused variable, mainly to stop CalculateTicketPrice from throwing an error
 
-                customerAge = Util.AskForAnInt("age");
-                sumOfTicketPrices += Util.CalculateTicketPrice(customerAge);
+                sumOfTicketPrices += Util.CalculateTicketPrice(customerAge, out customerType);
             }
-
-            Console.WriteLine($"The maximum ticket price for {length} person(s) is: {sumOfTicketPrices}");
-            Console.WriteLine("Press any key to continue.");
-            Console.ReadKey();
+            MenuHelpers.DisplaySumOfTicketPrices(sumOfTicketPrices, length);
+            MenuHelpers.PressAnyKeyToContinue();
         }
 
         private static void LoopUserInputTenTimes()
@@ -76,11 +72,8 @@ namespace FlowControl
                 Console.Write($"{i + 1}. {input}, ");
             }
 
-            Console.WriteLine("\nPress any key to continue.");
-            Console.ReadKey();
+            MenuHelpers.PressAnyKeyToContinue();
         }
-
-        #region Helper methods, todo: move to Helper classes
 
         private static void SplitUserInputByWhiteSpace()
         {
@@ -90,13 +83,13 @@ namespace FlowControl
             do
             {
                 Console.Write("Please enter a sentence of at least three words of any choice:");
-                string userInput = Console.ReadLine();
+                string userInput = Console.ReadLine(); // split into string valid.
 
                 var words = userInput.Split(' ');
                 if (words.Length < 3)
                 {
                     Console.WriteLine("Error: the sentence must contain at least 3 words.");
-                }
+                } // split into array valid.
                 else
                 {
                     thirdWord = words[2];
@@ -105,9 +98,7 @@ namespace FlowControl
             } while (!inputIsValid);
 
             Console.WriteLine(thirdWord);
-            Console.WriteLine("\nPress any key to continue.");
-            Console.ReadKey();
+            MenuHelpers.PressAnyKeyToContinue();
         }
-        #endregion
     }
 }

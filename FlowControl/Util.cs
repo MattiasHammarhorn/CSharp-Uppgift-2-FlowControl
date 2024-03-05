@@ -17,8 +17,8 @@ namespace FlowControl
             do
             {
                 Console.Write($"Please enter a valid {prompt}: ");
-                userInput = Console.ReadLine();
 
+                userInput = Console.ReadLine();
                 if (String.IsNullOrEmpty(userInput))
                 {
                     Console.WriteLine($"Error: you must enter a valid {prompt}.");
@@ -41,6 +41,7 @@ namespace FlowControl
             do
             {
                 Console.Write($"Please enter a valid {prompt} here: ");
+
                 userInput = Console.ReadLine();
                 if (int.TryParse(userInput, out intToReturn))
                 {
@@ -54,24 +55,25 @@ namespace FlowControl
             return intToReturn;
         }
 
-        // Helper method for calculatiing the price of a ticket based on a customer's age
-        public static double CalculateTicketPrice(int customerAge)
+        // Helper method for calculating the price of a ticket and what the type of customer
+        // they are based on their age
+        public static double CalculateTicketPrice(int customerAge, out string customerType)
         {
             double ticketPrice = 0;
             if (customerAge < 20)
             {
                 ticketPrice = 80.0;
-                Console.WriteLine($"Youth price: {ticketPrice}");
+                customerType = "Youth";
             }
             else if (customerAge > 64)
             {
                 ticketPrice = 90.0;
-                Console.WriteLine($"Pensioner price: {ticketPrice}");
+                customerType = "Pensioner";
             }
             else
             {
                 ticketPrice = 120.0;
-                Console.WriteLine($"Standard price: {ticketPrice}");
+                customerType = "Standard";
             }
             return ticketPrice;
         }
