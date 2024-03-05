@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlowControl", "FlowControl\FlowControl.csproj", "{A0EF47A4-164C-4651-B44E-D325529B8DAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowControl.Helpers", "FlowControl.Helpers\FlowControl.Helpers.csproj", "{0DC51DB0-4E77-4108-AC00-D8A53FF62029}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0EF47A4-164C-4651-B44E-D325529B8DAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0EF47A4-164C-4651-B44E-D325529B8DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0EF47A4-164C-4651-B44E-D325529B8DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0EF47A4-164C-4651-B44E-D325529B8DAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DC51DB0-4E77-4108-AC00-D8A53FF62029}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DC51DB0-4E77-4108-AC00-D8A53FF62029}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DC51DB0-4E77-4108-AC00-D8A53FF62029}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DC51DB0-4E77-4108-AC00-D8A53FF62029}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E96F8961-6570-4AA9-9140-6D5709081C61}
+	EndGlobalSection
+EndGlobal
